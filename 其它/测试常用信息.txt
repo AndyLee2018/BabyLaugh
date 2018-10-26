@@ -1,0 +1,37 @@
+投保系统
+http://127.0.0.1:8080/ipartner/index
+
+liangbangyun001
+ex_datjxqx001
+ex_jiexcd01001
+ex_zhangqiang001河北
+ex_cuixinze001
+ex_baoybm001四川
+
+身份证号：411081199004235955
+
+核心系统
+http://10.196.9.75:9080/pcis/core/pcis_main.jsp
+mayongfeng001
+
+ftl
+20180927
+http://svn.cic.inter:8020/svn/jscd/code/jscd_team/branches/JSCD-V1/ShanXi
+
+用户名ex_songyitong001
+
+密码010034
+
+@太行行人 下载这个分支的代码，试下运行环境
+
+自己的SVN地址：https://192.168.1.110/svn/CIC
+
+报文存放地址 D:\home\user1\interface_xml\invoiceStatusQuery
+
+查询地区账号的sql ：select * from tbl_core_emp_power where code_dpt like '13%';
+
+
+MQ分支https://192.168.1.110/svn/CIC/%E6%BA%90%E7%A0%81/branches/develop/MQ
+
+JIRA http://192.168.1.110:8888/
+
