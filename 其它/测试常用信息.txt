@@ -1,16 +1,16 @@
-Í¶±£ÏµÍ³
+æŠ•ä¿ç³»ç»Ÿ
 http://127.0.0.1:8080/ipartner/index
 
 liangbangyun001
 ex_datjxqx001
 ex_jiexcd01001
-ex_zhangqiang001ºÓ±±
+ex_zhangqiang001æ²³åŒ—
 ex_cuixinze001
-ex_baoybm001ËÄ´¨
+ex_baoybm001å››å·
 
-Éí·İÖ¤ºÅ£º411081199004235955
+èº«ä»½è¯å·ï¼š411081199004235955
 
-ºËĞÄÏµÍ³
+æ ¸å¿ƒç³»ç»Ÿ
 http://10.196.9.75:9080/pcis/core/pcis_main.jsp
 mayongfeng001
 
@@ -18,20 +18,20 @@ ftl
 20180927
 http://svn.cic.inter:8020/svn/jscd/code/jscd_team/branches/JSCD-V1/ShanXi
 
-ÓÃ»§Ãûex_songyitong001
+ç”¨æˆ·åex_songyitong001
 
-ÃÜÂë010034
+å¯†ç 010034
 
-@Ì«ĞĞĞĞÈË ÏÂÔØÕâ¸ö·ÖÖ§µÄ´úÂë£¬ÊÔÏÂÔËĞĞ»·¾³
+@å¤ªè¡Œè¡Œäºº ä¸‹è½½è¿™ä¸ªåˆ†æ”¯çš„ä»£ç ï¼Œè¯•ä¸‹è¿è¡Œç¯å¢ƒ
 
-×Ô¼ºµÄSVNµØÖ·£ºhttps://192.168.1.110/svn/CIC
+è‡ªå·±çš„SVNåœ°å€ï¼šhttps://192.168.1.110/svn/CIC
 
-±¨ÎÄ´æ·ÅµØÖ· D:\home\user1\interface_xml\invoiceStatusQuery
+æŠ¥æ–‡å­˜æ”¾åœ°å€ D:\home\user1\interface_xml\invoiceStatusQuery
 
-²éÑ¯µØÇøÕËºÅµÄsql £ºselect * from tbl_core_emp_power where code_dpt like '13%';
+æŸ¥è¯¢åœ°åŒºè´¦å·çš„sql ï¼šselect * from tbl_core_emp_power where code_dpt like '13%';
 
 
-MQ·ÖÖ§https://192.168.1.110/svn/CIC/%E6%BA%90%E7%A0%81/branches/develop/MQ
+MQåˆ†æ”¯https://192.168.1.110/svn/CIC/%E6%BA%90%E7%A0%81/branches/develop/MQ
 
 JIRA http://192.168.1.110:8888/
 
