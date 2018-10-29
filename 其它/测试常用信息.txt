@@ -35,3 +35,4 @@ MQ分支https://192.168.1.110/svn/CIC/%E6%BA%90%E7%A0%81/branches/develop/MQ
 
 JIRA http://192.168.1.110:8888/
 
+银行账号 62284 80010 20090 0214
