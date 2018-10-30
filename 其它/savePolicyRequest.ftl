@@ -337,6 +337,17 @@
 							</#if>
 						</#if>
 					</BASE_PART>
+					<ADAS_INFO>
+						<C_PARTNER_NME>${savePolicy.vehicleInfo.cooPartner}</C_PARTNER_NME>
+						<C_EQUIPMENT_STATUS>${savePolicy.vehicleInfo.equipStatus}</C_EQUIPMENT_STATUS>
+						<C_EQUIPMENT_TYPE>${savePolicy.vehicleInfo.equipType}</C_EQUIPMENT_TYPE>
+						<C_EQUIPMENT_NO>${savePolicy.vehicleInfo.equipCode}</C_EQUIPMENT_NO>
+						<T_FIRST_INSTALL_TM>${savePolicy.vehicleInfo.installDate}</T_FIRST_INSTALL_TM>
+						<C_PORCUREMENT_METHOD>${savePolicy.vehicleInfo.procureMothed}</C_PORCUREMENT_METHOD>
+						<N_APPLICANT_PROPORTION>${savePolicy.vehicleInfo.applicantProportion}</N_APPLICANT_PROPORTION>
+						<N_INSUER_PROPORTION>${savePolicy.vehicleInfo.insureProportion}</N_INSUER_PROPORTION>
+						<N_OTHER_PROPORTION>${savePolicy.vehicleInfo.otherProportion}</N_OTHER_PROPORTION>
+					</ADAS_INFO><!-- ADAS信息列表节点 -->
 					<VEHICLE>
 						<#if isComm>
 							<C_QRY_CDE>${savePolicy.baseInfo.querySequenceNoComm}</C_QRY_CDE><!--查询码-->
