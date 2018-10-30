@@ -18,12 +18,9 @@ mayongfeng001
 ftl
 20180927
 http://svn.cic.inter:8020/svn/jscd/code/jscd_team/branches/JSCD-V1/ShanXi
-
+http://svn.cic.inter:8020/svn/jscd/code/jscd_team/branches/JSCD-V1/ADAS
 用户名ex_songyitong001
-
 密码010034
-
-@太行行人 下载这个分支的代码，试下运行环境
 
 自己的SVN地址：https://192.168.1.110/svn/CIC
 
