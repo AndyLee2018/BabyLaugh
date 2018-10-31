@@ -7,6 +7,7 @@ ex_jiexcd01001
 ex_zhangqiang001河北
 ex_cuixinze001
 ex_baoybm001四川
+chengaqing001福建
 
 身份证号：411081199004235955
 	   511622196310260908 四川
