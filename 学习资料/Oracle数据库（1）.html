@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://www.cnblogs.com/qneverever/p/4500023.html -->
+<html lang="zh-cn" class="cye-enabled cye-nm cye-lm-tag"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="origin">
+<title>Oracle数据库（一） - 、李白 - 博客园</title>
+<meta property="og:description" content="Oracle是一个数据库管理系统，是Oracle公司的核心产品。其在数据安全性与安整性控制方面的优越性能，以及跨操作系统、跨硬件平台的数据操作能力。基于“客户端/服务 器”(Client/Server">
+<link type="text/css" rel="stylesheet" href="./Oracle数据库（1）_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./Oracle数据库（1）_files/bundle-CodingLife.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./Oracle数据库（1）_files/bundle-CodingLife-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/qneverever/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/qneverever/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/qneverever/wlwmanifest.xml">
+<script src="./Oracle数据库（1）_files/osd.js"></script><script src="./Oracle数据库（1）_files/amp4ads-host-v0.js"></script><script src="./Oracle数据库（1）_files/pubads_impl_rendering_275.js"></script><script async="" src="./Oracle数据库（1）_files/analytics.js"></script><script src="./Oracle数据库（1）_files/jquery-2.2.0.min.js"></script><style id="nightModeStyle">
+html.cye-enabled.cye-nm:not(*:-webkit-full-screen) body,
+ html.cye-enabled.cye-nm:not(*:-webkit-full-screen) #cye-workaround-body {-webkit-filter:contrast(91%) brightness(84%) invert(1);}</style><style id="cyebody">html.cye-enabled.cye-lm body{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style><style id="cyediv">html.cye-enabled.cye-lm div{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style><style id="cyetable">html.cye-enabled.cye-lm th{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}html.cye-enabled.cye-lm td{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style><style id="cyetextInput">html.cye-enabled.cye-lm input[type=text]{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}html.cye-enabled.cye-lm textarea{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style><style id="cyeselect">html.cye-enabled.cye-lm select{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style><style id="cyeul">html.cye-enabled.cye-lm ul{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style><style id="cyeChangeByClick">html.cye-enabled.cye-lm .cye-lm-tag,html.cye-enabled.cye-lm.cye-lm-tag{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style>
+<script type="text/javascript">var currentBlogApp = 'qneverever', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./Oracle数据库（1）_files/blog-common.js" type="text/javascript"></script>
+<link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=www.cnblogs.com" as="script"><script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=www.cnblogs.com"></script><script src="./Oracle数据库（1）_files/pubads_impl_275.js" async=""></script></head><div id="cyeBlackMaskLayer" style="background-color: rgb(19, 19, 19); position: fixed; width: 1980px; height: 1080px; z-index: -2147483648;"></div>
+<body style="" class="cye-lm-tag">
+<a name="top"></a>
+
+<!--done-->
+<div id="home" class="cye-lm-tag">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="https://www.cnblogs.com/qneverever/"><img id="blogLogo" src="./Oracle数据库（1）_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="https://www.cnblogs.com/qneverever/">、李白</a></h1>
+<h2></h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">博客园</a></li>
+<li><a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/qneverever/">首页</a></li>
+<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/%E3%80%81%E6%9D%8E%E7%99%BD">联系</a></li>
+<li><a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/qneverever/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="https://www.cnblogs.com/qneverever/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<span id="stats_post_count" class="cye-lm-tag">随笔 - 18&nbsp; </span>
+<span id="stats_article_count" class="cye-lm-tag">文章 - 0&nbsp; </span>
+<span id="stats-comment_count" class="cye-lm-tag">评论 - 0</span>
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main" class="cye-lm-tag">
+	<div id="mainContent" class="cye-lm-tag">
+	<div class="forFlow cye-lm-tag">
+		
+<div id="post_detail" class="cye-lm-tag">
+<!--done-->
+<div id="topics" class="cye-lm-tag">
+	<div class="post cye-lm-tag">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/qneverever/p/4500023.html">Oracle数据库（一）</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody cye-lm-tag">
+			<div id="cnblogs_post_body" class="blogpost-body cye-lm-tag"><p class="cye-lm-tag">Oracle&nbsp;是一个数据库管理系统，是Oracle公司的核心产品。其在数据安全性与安整性控制方面的优越性能，以及跨操作系统、跨硬件平台的数据操作能力。基于“客户端<span style="font-family: Consolas;" class="cye-lm-tag">/</span><span style="font-family: 宋体;" class="cye-lm-tag">服务　　&nbsp;　　　　 &nbsp;器”</span>(Client/Server)系统结构。</p>
+<p class="cye-lm-tag"><strong>主要特点：</strong></p>
+<p style="margin-left: 30px;" class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">1</span>.<span style="font-family: 宋体;" class="cye-lm-tag">支持多用户、大事务量的事务处理。</span></p>
+<p style="margin-left: 30px;" class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">2</span>.<span style="font-family: 宋体;" class="cye-lm-tag">在保持数据安全性和完整性方面性能优越。</span></p>
+<p style="margin-left: 30px;" class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">3</span>.<span style="font-family: 宋体;" class="cye-lm-tag">支持分布式数据处理。将公布在不同物理位置的数据库用通信网络连接起来，组成一个逻辑上统一的数据库，完成</span></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">数据处理任务。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">4</span>.<span style="font-family: 宋体;" class="cye-lm-tag">具有可移植性。</span>Oracle可以在Windows、Linux等多个操作系统平台上使用。</p>
+<p class="cye-lm-tag">&nbsp;</p>
+<p class="cye-lm-tag"><strong>Oracle基本概念：</strong></p>
+<p style="margin-left: 30px;" class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">1</span>.数据库。这里的数据库是磁盘上存储数据的集合，在物理上表现为数据文件、日志文件和控制文件等。在逻辑上以表空</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">间形式存在。必须首先创建数据库，然后才能用Oracle。可以在Database&nbsp;Configuation&nbsp;Assistant上创建。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">2</span>.全局数据库名。用于区分一个数据库的标识。它由数据库名称和域名构成，类似网络中的域名，使数据库的命名在整个</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">网络环境中唯一。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">3</span>.数据库实例。每个启动的数据库都对应一个数据库实例，由这个实例来访问数据库中的数据。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">4</span>.表空间。每个数据库都是由若干个表空间构成的，用户在数据库中建立的所有内容都被存储到表空间中。一个表空间可</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">以由多个数据文件组成，但一个数据文件只能属于一个表空间。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">5</span>.数据文件。扩展名是.dbf，是用于存储数据库数据的文件。一个数据文件中可能存储很多个表的数据，而一个表的数据</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">也可以存放在多个数据文件中。数据文件和数据库表不存在一对一的关系。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">6.</span>控制文件。技展名.ctl，是一个二进制文件。控制文件是数据库启动及运行所必需的文件。存储数据文件和日志文件的</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">名称和位置。Oracle&nbsp;11g默认包含三个控制文件。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">7.</span>日志文件。扩展名.log，它记录了数据的所有更改信息，并提供了一种数据恢复机制，确保在系统崩溃或其他意外出现</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">后重新恢复数据库。在工作过程中，多个日志文件组之间循环使用。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">8</span>.模式和模式对象。模式是数据库对象(表、索引等，也称模式对象)的集合。</p>
+<p class="cye-lm-tag">&nbsp;</p>
+<p class="cye-lm-tag"><strong class="cye-lm-tag">Windows下Oracle数据库服务：</strong></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">1.<span style="color: #ff0000;" class="cye-lm-tag">OracleServiceSID</span><span style="font-family: 宋体;" class="cye-lm-tag">服务是</span>Oracle数据库服务。此服务对应名为SID(系统标识符)的数据库实例创建的。必须启动。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">2.<span style="color: #ff0000;" class="cye-lm-tag">OracleOraDb11g_homelTNSListener</span>服务是监听器服务。要远程连接数据库服务器，必须连接监听进程，该服务只有</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">在数据库需要远程访问时候才需要。(PL/SQL等第三方工具连接就相当于远程连接)。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">3.<span style="color: #ff0000;" class="cye-lm-tag">OracleDBConsoleSID</span>服务是数据库控制台服务，是采用浏览器方式打开的，用于使用Oracle企业管理器的程序。如</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">果进入&nbsp;基于Web形式的企业管理(EM)控制平台，必须要启动OracleDBConsoleSID服务。</p>
+<p class="cye-lm-tag">&nbsp;</p>
+<p class="cye-lm-tag"><strong>连接数据库：</strong></p>
+<p class="cye-lm-tag">Sys和System用户都是Oracle的系统用户，Scott用户是Oracle数据库的一个测试账户，里男包含一些测试例表。每</p>
+<p class="cye-lm-tag">个用户下所有的对象称为模式对象。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">1.用<span style="color: #ff0000;" class="cye-lm-tag">SQL&nbsp;Plus</span>工具登录：</p>
+<p style="margin-left: 60px;" class="cye-lm-tag">1)cmd-&gt;sqlplus-&gt;用户名：-&gt;密码:</p>
+<p style="margin-left: 60px;" class="cye-lm-tag">2)直接打开程序SQL&nbsp;Plus-&gt;用户名：-&gt;密码</p>
+<p style="margin-left: 60px;" class="cye-lm-tag">3)在输入用户名处-&gt;用户名/密码@网络服务名</p>
+<p style="margin-left: 60px;" class="cye-lm-tag">4)命令窗口：sqlplus&nbsp;/nolog 这样就只是打开了sqlplus而并没有连接数据库，之后要连接数据库得继续敲：</p>
+<p style="margin-left: 60px;" class="cye-lm-tag">connect&nbsp;用户名<span style="font-family: Consolas;" class="cye-lm-tag">/</span><span style="font-family: 宋体;" class="cye-lm-tag">密码</span>@数据库名;</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">2.<span style="color: #ff0000;" class="cye-lm-tag">PL/SQL&nbsp;Developer</span>工具：</p>
+<p style="margin-left: 60px;" class="cye-lm-tag">1)用户名：输入System.</p>
+<p style="margin-left: 60px;" class="cye-lm-tag">2)口令：输入对应密码。</p>
+<p style="margin-left: 60px;" class="cye-lm-tag">3)数据库：输入已经配置好的网络服务名,如orclDB。</p>
+<p style="margin-left: 60px;" class="cye-lm-tag">4)连接为:Normal普通用户<span style="font-family: Consolas;" class="cye-lm-tag">;</span>sysOper数据库操作员;sysDBA数据库管理员。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">3.<span style="color: #ff0000;" class="cye-lm-tag"><strong>Java连接Oracle:</strong></span></p>
+<p style="margin-left: 60px;" class="cye-lm-tag"><span style="color: #33cccc;" class="cye-lm-tag">driver</span>:&nbsp;oracle.jdbc.driver.OracleDriver</p>
+<p style="margin-left: 60px;" class="cye-lm-tag"><span style="color: #33cccc;" class="cye-lm-tag">url</span>:&nbsp;jdbc:oracle:thin:@localhost:1521:数据库名</p>
+<p class="cye-lm-tag">&nbsp;</p>
+<p class="cye-lm-tag"><span style="color: #33cccc;" class="cye-lm-tag">DUAL伪表</span>，在Oracle的查询语句中select和from关键字一定有值，但在某些情况下不需要from,如查询常量或函数，为</p>
+<p class="cye-lm-tag">了满足要求，Oracle使用DUAL伪表来实现要求。</p>
+<p class="cye-lm-tag">如: <span style="color: #33cccc;" class="cye-lm-tag">select&nbsp;sysdate&nbsp;from&nbsp;dual</span>;--查询出当前系统日期和时间</p>
+<p class="cye-lm-tag">&nbsp;</p>
+<p class="cye-lm-tag"><strong>Oracle数据类型：</strong></p>
+<p class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">1.字符数据类型</span>：</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">1)char数据类型。当需要固定长度字符串时，使用char。长度1~2000字节。如果没有指定大小，默认<span style="font-family: Consolas;" class="cye-lm-tag">1</span><span style="font-family: 宋体;" class="cye-lm-tag">字节。如果</span></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">用户输入的值小于指定的大小，系统用空格填充。如果大于，报错。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">2)varchar2数据类型，支持可变长度的字符串。大小为1~4000字节。如果用户输入的值小于指定的大小，不用填充</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">，varchar2数据类型可以节省磁盘空间。如果varchar2想根据定义的长度存储相应的汉字个数，可以声明为</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">如：varchar2(10&nbsp;char)</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">3)nchar数据类型，即国家字符集，使用方法和char相同。用来存储Unicode字符集类型，即双字节字符数据。最</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">小单位<span style="font-family: Consolas;" class="cye-lm-tag">1</span><span style="font-family: 宋体;" class="cye-lm-tag">字符。</span></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">4)nvarchar2与nchar类似，只是可变长度的。</p>
+<p class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">2.数值数据类型number</span>：</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">number数据类型可以存储正数、负数、零、定点数、精度为<span style="font-family: Consolas;" class="cye-lm-tag">38</span><span style="font-family: 宋体;" class="cye-lm-tag">信的浮点数。</span></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">语法：number(p,s) --如果不写p,s内容，是否是没有限制<span style="font-family: Consolas;" class="cye-lm-tag">?</span></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">p&nbsp;为精度，表示数字的有效位数，在<span style="font-family: Consolas;" class="cye-lm-tag">1~38</span><span style="font-family: 宋体;" class="cye-lm-tag">之间，从左边第一个不为</span><span style="font-family: Consolas;" class="cye-lm-tag">0</span><span style="font-family: 宋体;" class="cye-lm-tag">的数算起，小数点和负号不计入有效位数。</span></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">s&nbsp;为范围，表示小数右边数字的位数，在-84~+127之间。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">规则：首先精确到小数中右边s位，并四舍五入。如果精确后值的有效位数&lt;=p，则正确<span style="font-family: Consolas;" class="cye-lm-tag">;</span><span style="font-family: 宋体;" class="cye-lm-tag">否则报错。</span></p>
+<p class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">3.日期时间数据类型</span>：用于存储日期值和时间值</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">1)date数据类型，用于存储表中的日期和时间数据。使用<span style="font-family: Consolas;" class="cye-lm-tag">7</span><span style="font-family: 宋体;" class="cye-lm-tag">字节固定长度，每个字节分别存储世纪、年、月、日、小</span></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">时、分和秒。sysdate函数的功能是返回当前的日期和时间。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">2)timestamp数据类型，用于存储日期的年、月、日以及时间的小时、分和秒。秒值精确到小数小后<span style="font-family: Consolas;" class="cye-lm-tag">6</span><span style="font-family: 宋体;" class="cye-lm-tag">位，包含时区</span></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">信息。systimestamp函数的功能是返回当前日期、时间和时区。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">改变日期格式：</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">Oracle中的SQL窗口：alter&nbsp;session&nbsp;set&nbsp;nls&nbsp;date&nbsp;format=’YYYY-MM-DD&nbsp;HH24:MI:SS’;//只对当前窗口有效。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">环境变量：键：nls_date_format</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">值:YYYY-MM-DD&nbsp;HH24:MISS</p>
+<p class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">4.游标类型</span>，SYS_REFCURSOR类型是Oracle提供的系统游标类型。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">如下，过程返回一个游标类型：</p>
+<p style="margin-left: 60px;" class="cye-lm-tag">CREATE&nbsp;OR&nbsp;REPLACE&nbsp;PROCEDURE&nbsp;get_sals(</p>
+<p style="margin-left: 60px;" class="cye-lm-tag">cur_salary&nbsp;OUT&nbsp;SYS_REFCURSOR</p>
+<p style="margin-left: 60px;" class="cye-lm-tag">)</p>
+<p style="margin-left: 60px;" class="cye-lm-tag">IS</p>
+<p style="margin-left: 60px;" class="cye-lm-tag">BEGIN</p>
+<p style="margin-left: 60px;" class="cye-lm-tag">OPEN&nbsp;our_salary&nbsp;FOR&nbsp;</p>
+<p style="margin-left: 60px;" class="cye-lm-tag">SELECT&nbsp;empno,&nbsp;sal&nbsp;FROM&nbsp;employee;</p>
+<p style="margin-left: 60px;" class="cye-lm-tag">END;</p>
+<p class="cye-lm-tag">&nbsp;</p>
+<p class="cye-lm-tag"><em><span style="color: #ff6600;" class="cye-lm-tag">LOB<span style="font-family: 宋体;" class="cye-lm-tag">数据</span>类型</span>：</em></p>
+<p class="cye-lm-tag">LOB<span style="font-family: 宋体;" class="cye-lm-tag">又称为“大对象”数据类型。我叫存储</span><span style="font-family: Consolas;" class="cye-lm-tag">4GB</span><span style="font-family: 宋体;" class="cye-lm-tag">的非结构化信息，如声音剪辑和视频剪辑。</span><span style="font-family: Consolas;" class="cye-lm-tag">LOB</span><span style="font-family: 宋体;" class="cye-lm-tag">允许对数据进行高效、随</span></p>
+<p class="cye-lm-tag">机、分段的访问。一个表中可以有多个列被定义为<span style="font-family: Consolas;" class="cye-lm-tag">LOB</span><span style="font-family: 宋体;" class="cye-lm-tag">数据类型。可以通过</span><span style="font-family: Consolas;" class="cye-lm-tag">PL/SQL</span><span style="font-family: 宋体;" class="cye-lm-tag">中提供的程序包</span><span style="font-family: Consolas;" class="cye-lm-tag">DBMS</span>_LOB修改。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">1.CLOB(Character&nbsp;LOB,字符<span style="font-family: Consolas;" class="cye-lm-tag">LOB</span>)存储大量字符数据。可以存储单字节字符数据和多字节字符数据，主要用于存储非结</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">构化的<span style="font-family: Consolas;" class="cye-lm-tag">XML</span><span style="font-family: 宋体;" class="cye-lm-tag">多档。如新闻、内容介绍等含大量文字内容的文档。</span></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">2.BLOB(Binary&nbsp;LOB,二进制<span style="font-family: Consolas;" class="cye-lm-tag">LOB</span>)可以存储较大的二进制对象，如图形、视频剪辑和声音剪辑等。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">3.BFILE(Binary&nbsp;File<span style="font-family: 宋体;" class="cye-lm-tag">，二进制文件</span>)能够将二进制文件存储在数据库外部的操作系统文件中。BFILE列存储一个BFILE</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">定位器，指向位于服务器文件系统上的二进制文件。最大<span style="font-family: Consolas;" class="cye-lm-tag">4GB</span><span style="font-family: 宋体;" class="cye-lm-tag">。</span></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">4.NCLOB<span style="font-family: 宋体;" class="cye-lm-tag">数据类型用于存储大的</span>nchar字符数据。支持固定宽度字符和可变宽度字符(Unicode字符数据)。使用方法同</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">CLOB类似。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">早期使用Long数据类型存储大数据。</p>
+<p class="cye-lm-tag">&nbsp;</p>
+<p class="cye-lm-tag"><strong class="cye-lm-tag">Oracle中的<span style="color: #ff6600;" class="cye-lm-tag">伪列</span>：</strong></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">1.<span style="color: #ff0000;" class="cye-lm-tag">rouid</span>，数据库中每一行都有一个行地址，rowid伪列返回该行地址。rowId值可以唯一标识数据库中的一行。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">2.<span style="color: #ff0000;" class="cye-lm-tag">rounum</span>,返回一个数值代表行的次序。通过使用rownum，用户可以限制查询返回的行数。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">rownum对于等于某值的查询条件，可以使用rownum=1作为条件，但是不能等于大于<span style="font-family: Consolas;" class="cye-lm-tag">1</span><span style="font-family: 宋体;" class="cye-lm-tag">的值。</span></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">rownum对于大于某值的查询条件，可以使用rownum&gt;1，但是不能大于<span style="font-family: Consolas;" class="cye-lm-tag">1</span><span style="font-family: 宋体;" class="cye-lm-tag">以上的值。</span></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">rownum对于小于某值的查询条件，可以rownum&lt;大于1的整数。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">例: select&nbsp;*&nbsp;from(</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">&nbsp;&nbsp; select&nbsp;a.*,rownum&nbsp;rn&nbsp;from&nbsp;(&nbsp;&nbsp;--<span style="font-family: 宋体;" class="cye-lm-tag">这里设置了</span>rownum的列别名，这样就可以在外层查询用between&nbsp;and语句了&nbsp;</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">&nbsp;&nbsp;&nbsp;&nbsp; select&nbsp;*&nbsp;from&nbsp;employee&nbsp;order&nbsp;by&nbsp;sal&nbsp;desc</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">&nbsp;&nbsp; )&nbsp;a</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">)</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">where&nbsp;rn&nbsp;between&nbsp;5&nbsp;and&nbsp;9;</p>
+<p class="cye-lm-tag">&nbsp;</p>
+<p class="cye-lm-tag"><strong>SQL语言分类：</strong></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">数据定义语言(<span style="color: #ff0000;" class="cye-lm-tag">DDL</span>&nbsp;Data&nbsp;Definition)：create创建、<span style="font-family: Consolas;" class="cye-lm-tag">alter</span><span style="font-family: 宋体;" class="cye-lm-tag">更改、</span><span style="font-family: Consolas;" class="cye-lm-tag">truncate</span><span style="font-family: 宋体;" class="cye-lm-tag">截断、</span><span style="font-family: Consolas;" class="cye-lm-tag">drop</span><span style="font-family: 宋体;" class="cye-lm-tag">删除</span></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">数据操纵语言(<span style="color: #ff0000;" class="cye-lm-tag">DML</span>&nbsp;Data&nbsp;Manipulation&nbsp;Language)：<span style="font-family: Consolas;" class="cye-lm-tag">insert</span><span style="font-family: 宋体;" class="cye-lm-tag">插入、</span><span style="font-family: Consolas;" class="cye-lm-tag">select</span><span style="font-family: 宋体;" class="cye-lm-tag">选择、</span><span style="font-family: Consolas;" class="cye-lm-tag">delete</span><span style="font-family: 宋体;" class="cye-lm-tag">删除、</span><span style="font-family: Consolas;" class="cye-lm-tag">update</span><span style="font-family: 宋体;" class="cye-lm-tag">更新</span></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">事务控制语言(<span style="color: #ff0000;" class="cye-lm-tag">TCL</span>&nbsp;Transaction&nbsp;Control&nbsp;Language)：<span style="font-family: Consolas;" class="cye-lm-tag">commit</span><span style="font-family: 宋体;" class="cye-lm-tag">提交、</span><span style="font-family: Consolas;" class="cye-lm-tag">savepoint</span><span style="font-family: 宋体;" class="cye-lm-tag">保存点、</span><span style="font-family: Consolas;" class="cye-lm-tag">rollback</span><span style="font-family: 宋体;" class="cye-lm-tag">回滚</span></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">数据控制语言(<span style="color: #ff0000;" class="cye-lm-tag">DCL</span>&nbsp;Data&nbsp;Control&nbsp;Language)：<span style="font-family: Consolas;" class="cye-lm-tag">grant</span><span style="font-family: 宋体;" class="cye-lm-tag">授予、</span><span style="font-family: Consolas;" class="cye-lm-tag">revoke</span><span style="font-family: 宋体;" class="cye-lm-tag">回收</span></p>
+<p class="cye-lm-tag">&nbsp;</p>
+<p class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">数据定义语言<span style="font-family: Consolas;" class="cye-lm-tag">DDL</span></span>：</p>
+<p style="margin-left: 30px;" class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">1</span>.<span style="color: #33cccc;" class="cye-lm-tag">create&nbsp;table</span>命令：</p>
+<p style="margin-left: 60px;" class="cye-lm-tag">create&nbsp;table&nbsp;[schema.]table_name</p>
+<p style="margin-left: 60px;" class="cye-lm-tag">(</p>
+<p style="margin-left: 60px;" class="cye-lm-tag">column_name&nbsp;datatype,</p>
+<p style="margin-left: 60px;" class="cye-lm-tag">column_name&nbsp;datetype,</p>
+<p style="margin-left: 60px;" class="cye-lm-tag">....</p>
+<p style="margin-left: 60px;" class="cye-lm-tag">)</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">schema表示对象的所有者，即模式的名称。如果用户在自己的模式中创建表，则可以不指定所有者名称。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">table表示表的名称。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">column表示列的名称。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">datatype表示该列的数据类型及其宽度。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">表名命名规则：</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">1)表名首字符应该为字母。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">2)不能使用Oracle保留字来为表命名。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">3)表各的最大长度为<span style="font-family: Consolas;" class="cye-lm-tag">30</span><span style="font-family: 宋体;" class="cye-lm-tag">个字符。</span></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">4)同一用户模式下的不同表不能具有相同的名称。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">5)可以使用下划线、数字、字母，但不能使用空格和单引号。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">Oracel和SQL&nbsp;Server数据库对象表之间的差异：</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">列数：Oracle,254;&nbsp;SQL&nbsp;Server,1024</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">行大小：Oracle没有限制;SQL&nbsp;Server,8060字节，加<span style="font-family: Consolas;" class="cye-lm-tag">16</span><span style="font-family: 宋体;" class="cye-lm-tag">字节指向每个</span>text或image列。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">最大行数：Oracle没有限制;SQL&nbsp;Server没有限制</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">表命名规则：Oracle,[schema.]table_name;&nbsp;SQL&nbsp;Server,[[[server.]database.]owner.]table_name</p>
+<p style="margin-left: 30px;" class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">2</span><span style="color: #33cccc;" class="cye-lm-tag">.truncate&nbsp;table</span>命令：</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">可以只删除表中的记录而不删除表结构，删除表中的所有行而不记录日志。</p>
+<p style="margin-left: 60px;" class="cye-lm-tag">truncate&nbsp;table&nbsp;&lt;table_name&gt;;</p>
+<p class="cye-lm-tag">&nbsp;</p>
+<p class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">数据操纵语言<span style="font-family: Consolas;" class="cye-lm-tag">DML</span>：(insert,select,update,delete)</span></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">1.选择无重复的行，在select命令中包含distinct子句。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">select&nbsp;distinct&nbsp;stuName,stuAge&nbsp;from&nbsp;stuInfo;</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">2.使用列别名，列别名不会影响列的实际名称。列别名位于列表达式后面。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">select&nbsp;stuName&nbsp;as&nbsp;“姓&nbsp;名”,stuAge&nbsp;as&nbsp;年龄,stuNo&nbsp;编号&nbsp;from&nbsp;stuInfo;</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">如果列别名中指定有特殊字符（如空格）的列标题使用双引号括起来。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">3.利用现有表创建新表。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">语法： create&nbsp;table&nbsp;&lt;newTable_name&gt;</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">&nbsp;as</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">select&nbsp;{*&nbsp;|&nbsp;column(s)}&nbsp;from&nbsp;&lt;oldTable_name&gt;&nbsp;[where&nbsp;&lt;condition&gt;];</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">复制表结构和记录：</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">create&nbsp;table&nbsp;newStuInfo</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">as</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">select&nbsp;*&nbsp;from&nbsp;stuInfo;</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">复制表指定列和记录：</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">create&nbsp;table&nbsp;newStuInfo</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">as</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">select&nbsp;stuName,stuAge,stuNo&nbsp;from&nbsp;stuInfo;</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">只复制表结构：</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">create&nbsp;table&nbsp;newStuInfo</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">as</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">select&nbsp;*&nbsp;from&nbsp;stuInfo&nbsp;where&nbsp;1=2;</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">4.查看表中行数：</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">select&nbsp;count(1)&nbsp;from&nbsp;stuInfo; --1<span style="font-family: 宋体;" class="cye-lm-tag">比</span><span style="font-family: Consolas;" class="cye-lm-tag">*</span><span style="font-family: 宋体;" class="cye-lm-tag">号效率较高</span></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">5.取出stuName,stuAge列不存在重复的数据记录：</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">select&nbsp;stuName,stuAge&nbsp;from&nbsp;stuInfo</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">group&nbsp;by&nbsp;stuName,stuAge</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">having(count(stuName||stuAge));//“||”在这里是连接操作符，类似于“<span style="font-family: Consolas;" class="cye-lm-tag">+</span><span style="font-family: 宋体;" class="cye-lm-tag">”，意思为将两部分内容连接在</span></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">一起，因为count()里面只能有一个列，所以连接起来。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">6.删除stuName、stuAge列重复的行（相同数据只保留一行）</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">delete&nbsp;from&nbsp;stuInfo&nbsp;where&nbsp;rowid&nbsp;not&nbsp;in(</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">select&nbsp;max(rowid)&nbsp;from&nbsp;stuInfo&nbsp;group&nbsp;by&nbsp;stuName,stuAge&nbsp;</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">having&nbsp;(count(stuName||stuAGe)&gt;1)</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">union</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">select&nbsp;max(rowid)&nbsp;from&nbsp;stuInfo&nbsp;group&nbsp;by&nbsp;stuName,stuAge</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">having&nbsp;(count(stuName||stuAge)=1)</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">);</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">7.根据当前用户所有数据量&gt;100<span style="font-family: 宋体;" class="cye-lm-tag">万的表的信息</span></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">select&nbsp;tabke_name&nbsp;from&nbsp;user_all_tables&nbsp;a&nbsp;where&nbsp;a.num_rows&gt;1000000;</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">--user_all_tables为系统提供的数据视图，使用者可以通过查询该视图获得当前用户表中描述。</p>
+<p class="cye-lm-tag">&nbsp;</p>
+<p class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">事务控制语言TCL</span>：</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">1)<span style="color: #ff0000;" class="cye-lm-tag">commit</span>:提交事务,提事务中对数据库的修改进行永久保存。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">2)<span style="color: #ff0000;" class="cye-lm-tag">rollback</span>:回滚事务，即取消对数据库所做的作何修改。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">3)<span style="color: #ff0000;" class="cye-lm-tag">savepoint&nbsp;&lt;savepoint_name&gt;</span>:在事务中创建存储点。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">4)<span style="color: #ff0000;" class="cye-lm-tag">rollback&nbsp;to&nbsp;savepoint&nbsp;&lt;savepoint_name&gt;</span>:将事务回滚到存储点。即savepoint&nbsp;创建的存储点</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">开启事务：在Oracle中，上一次事务结束以后，数据第一次被修改时自动开启。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">结束事务： ①数据被提交:发出commit命令;执行<span style="font-family: Consolas;" class="cye-lm-tag">DDL</span><span style="font-family: 宋体;" class="cye-lm-tag">或</span><span style="font-family: Consolas;" class="cye-lm-tag">DCL</span><span style="font-family: 宋体;" class="cye-lm-tag">语句后，当前事务自动</span>commit;与Oracle分离。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">②数据被撤销：发出rollback命令<span style="font-family: Consolas;" class="cye-lm-tag">;</span><span style="font-family: 宋体;" class="cye-lm-tag">服务器进程异常结束</span><span style="font-family: Consolas;" class="cye-lm-tag">;DB</span>A停止会话。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">例: insert&nbsp;into&nbsp;dept&nbsp;values&nbsp;(10,’ACCOUNTING’,’NEW&nbsp;YORK’);</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">commit;</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">savepoint&nbsp;a;//a<span style="font-family: 宋体;" class="cye-lm-tag">只是一个名称</span></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">insert&nbsp;into&nbsp;dept&nbsp;values&nbsp;(20,’SALES’,’NEW&nbsp;YORK’);</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">rollback&nbsp;to&nbsp;savepoint&nbsp;a;</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">rollback;--结果只有第一条记录插入成功</p>
+<p class="cye-lm-tag">&nbsp;</p>
+<p class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">数据控制语言<span style="font-family: Consolas;" class="cye-lm-tag">DCL</span>：</span></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">数据控制语言为用户提供权限控制命令。数据库对象（如表）的所有者对这些对象拥有控制权限。所有者可以根据自己</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">的意愿决定其他用户如何访问对象，授予其他用户权限（insert,select,update,delete,....）</p>
+<p class="cye-lm-tag">&nbsp;</p>
+<p class="cye-lm-tag"><strong>SQL操作符：</strong></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">1.算术操作符。算术表达式由number数据类型的列名、数值常量和连接它们的算术操作符组成。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">+(加)、-(减)、*(乘)、/(除)。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">2.比较操作符：=、!=、&lt;、&lt;=、&gt;、&gt;=、between..&nbsp;and&nbsp;、in、not&nbsp;in、like、is&nbsp;null、is&nbsp;not&nbsp;null。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">Oracle中的between-and语句，包含前也包含后。如：rn&nbsp;between&nbsp;5&nbsp;and&nbsp;9;结果是5,6,7,8,9</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">3.逻辑操作符：and&nbsp;,&nbsp;or&nbsp;,&nbsp;not。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">4.集合操作符，将多个查询的结果组合成一个结果集。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">规则： 1<span style="font-family: 宋体;" class="cye-lm-tag">）通过集合操作符连接的条个查询具有相同的列数，且对应列的数据类型必须兼容。</span></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">2<span style="font-family: 宋体;" class="cye-lm-tag">）这种查询不应含有</span>long类型的列。列标题来自第一个select语句。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">union&nbsp;(并集)操作符返回两个查询选定的所有不重复的行。使用order&nbsp;by&nbsp;子句时，必须放在最后一个select后。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">select&nbsp;empno&nbsp;from&nbsp;employee</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">union</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">select&nbsp;rempno&nbsp;from&nbsp;retireEmp</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">order&nbsp;by&nbsp;empno;</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">union&nbsp;all&nbsp;(并集all)操作符合并两个查询选定的所有行。包括重复的行。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">intersect&nbsp;(交集)操作符返回两个查询都有的行。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">select&nbsp;empno&nbsp;from&nbsp;employee</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">intersect</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">select&nbsp;rempno&nbsp;from&nbsp;retireEmp;</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">minus&nbsp;(减集)操作符只返回由第一个查询选定而未被第二个查询选定的行，即在第一个查询结果中排除在第二个查询</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">结果中出现的行。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">select&nbsp;empno&nbsp;from&nbsp;employee</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">minus</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">select&nbsp;rempno&nbsp;from&nbsp;retireEmp;</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">5.连接操作符(||),用于将两个或多个字符串合并成一个字符串，或者将一个字符串与一个数值合并在一起。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">select&nbsp;job||’&nbsp;‘||ename&nbsp;from&nbsp;employee;--输出的时候将岗位和姓名连接在一起输出。</p>
+<p class="cye-lm-tag">&nbsp;</p>
+<p class="cye-lm-tag">SQL函数：大致分为单行函数、聚合函数、分析函数。</p>
+<p class="cye-lm-tag">单行函数：字符函数、日期函数、数字函数、转换函数及其他函数。</p>
+<p class="cye-lm-tag">聚合函数(Aggregate&nbsp;Function)也称为分组函数是基于数据库表的多行进行运算，返回一个结果。</p>
+<p class="cye-lm-tag">分析函数是对一个查询结果中的每个分组进行运算，但每个分组对应的结果可以有多个。</p>
+<p class="cye-lm-tag">&nbsp;</p>
+<p class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">字符函数</span>：操作结果可能是字符数据类型，也可能是数字类型。</p>
+<table class="cye-lm-tag">
+<tbody class="cye-lm-tag">
+<tr class="cye-lm-tag">
+<td valign="center" width="272" class="cye-lm-tag">
+<p class="cye-lm-tag">函数</p>
+</td>
+<td valign="center" width="202">
+<p class="cye-lm-tag">说明</p>
+</td>
+<td valign="center" width="309">
+<p class="cye-lm-tag">输入</p>
+</td>
+<td valign="center" width="166">
+<p class="cye-lm-tag">结果</p>
+</td>
+</tr>
+<tr class="cye-lm-tag">
+<td valign="top" width="272" class="cye-lm-tag">
+<p class="cye-lm-tag">initcap(char)</p>
+</td>
+<td valign="top" width="202" class="cye-lm-tag">
+<p class="cye-lm-tag">首字母大写</p>
+</td>
+<td valign="top" width="309">
+<p class="cye-lm-tag">initcap(‘hello’)</p>
+</td>
+<td valign="top" width="166">
+<p class="cye-lm-tag">Hello</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="272">
+<p class="cye-lm-tag">lower(char)</p>
+</td>
+<td valign="top" width="202">
+<p class="cye-lm-tag">转换为小写</p>
+</td>
+<td valign="top" width="309">
+<p class="cye-lm-tag">lower(‘FUN’)</p>
+</td>
+<td valign="top" width="166">
+<p class="cye-lm-tag">fun</p>
+</td>
+</tr>
+<tr class="cye-lm-tag">
+<td valign="top" width="272" class="cye-lm-tag">
+<p class="cye-lm-tag">upper(char)</p>
+</td>
+<td valign="top" width="202">
+<p class="cye-lm-tag">转换为大写</p>
+</td>
+<td valign="top" width="309">
+<p class="cye-lm-tag">upper(‘sun’)</p>
+</td>
+<td valign="top" width="166">
+<p class="cye-lm-tag">SUN</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="272">
+<p class="cye-lm-tag">ltrim(char,set)</p>
+</td>
+<td valign="top" width="202">
+<p class="cye-lm-tag">左剪裁</p>
+</td>
+<td valign="top" width="309">
+<p class="cye-lm-tag">ltrim(‘xyzadams’,’xyz’)</p>
+</td>
+<td valign="top" width="166">
+<p class="cye-lm-tag">zdams</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="272">
+<p class="cye-lm-tag">rtrim(char,set)</p>
+</td>
+<td valign="top" width="202">
+<p class="cye-lm-tag">右剪裁</p>
+</td>
+<td valign="top" width="309">
+<p class="cye-lm-tag">rtaim(‘xyzadams’,’ams’)</p>
+</td>
+<td valign="top" width="166">
+<p class="cye-lm-tag">xyzad</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="272">
+<p class="cye-lm-tag">translate(char,from,to)</p>
+</td>
+<td valign="top" width="202">
+<p class="cye-lm-tag">按字符翻译</p>
+</td>
+<td valign="top" width="309">
+<p class="cye-lm-tag">translate(‘Jack’,’abcd’,’1234’)</p>
+</td>
+<td valign="top" width="166">
+<p class="cye-lm-tag">J13k</p>
+</td>
+</tr>
+<tr class="cye-lm-tag">
+<td valign="top" width="272" class="cye-lm-tag">
+<p class="cye-lm-tag">replace(char,search_str,</p>
+<p class="cye-lm-tag">replace_str)</p>
+</td>
+<td valign="top" width="202">
+<p class="cye-lm-tag">字符串替换</p>
+</td>
+<td valign="top" width="309">
+<p class="cye-lm-tag">replace(‘jack&nbsp;and&nbsp;jue’,’j’,’bl’)</p>
+</td>
+<td valign="top" width="166">
+<p class="cye-lm-tag">black&nbsp;and&nbsp;blue</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="272">
+<p class="cye-lm-tag">instr(char,substr[.pos])</p>
+</td>
+<td valign="top" width="202">
+<p class="cye-lm-tag">查找子串位置</p>
+</td>
+<td valign="top" width="309">
+<p class="cye-lm-tag">instr(‘worldwide’,’d’)</p>
+</td>
+<td valign="top" width="166">
+<p class="cye-lm-tag">5</p>
+</td>
+</tr>
+<tr class="cye-lm-tag">
+<td valign="top" width="272" class="cye-lm-tag">
+<p class="cye-lm-tag">substr(char,pos,len)</p>
+</td>
+<td valign="top" width="202">
+<p class="cye-lm-tag">取子字符串,下标从<span style="font-family: Consolas;" class="cye-lm-tag">1</span><span style="font-family: 宋体;" class="cye-lm-tag">开始</span></p>
+</td>
+<td valign="top" width="309">
+<p class="cye-lm-tag">substr(‘abcdefg’,3,2)</p>
+</td>
+<td valign="top" width="166">
+<p class="cye-lm-tag">cd</p>
+</td>
+</tr>
+<tr class="cye-lm-tag">
+<td valign="top" width="272" class="cye-lm-tag">
+<p class="cye-lm-tag">concat(char1,char2)</p>
+</td>
+<td valign="top" width="202">
+<p class="cye-lm-tag">连接字符串</p>
+</td>
+<td valign="top" width="309">
+<p class="cye-lm-tag">concat(‘Hello’,’world’)</p>
+</td>
+<td valign="top" width="166">
+<p class="cye-lm-tag">Helloworld</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="cye-lm-tag">&nbsp;</p>
+<p class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">数字函数</span>，接受数字输入并返回数字作为输出结果，返回的值可以精确到小数点后<span style="font-family: Consolas;" class="cye-lm-tag">38</span><span style="font-family: 宋体;" class="cye-lm-tag">位。</span></p>
+<table>
+<tbody>
+<tr>
+<td valign="center" width="183">
+<p class="cye-lm-tag">函数</p>
+</td>
+<td valign="center" width="223">
+<p class="cye-lm-tag">说明</p>
+</td>
+<td valign="center" width="223">
+<p class="cye-lm-tag">输入</p>
+</td>
+<td valign="center" width="319">
+<p class="cye-lm-tag">结果</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="183">
+<p class="cye-lm-tag">abs(n)</p>
+</td>
+<td valign="top" width="223">
+<p class="cye-lm-tag">取绝对值</p>
+</td>
+<td valign="top" width="223">
+<p class="cye-lm-tag">abs(-15)</p>
+</td>
+<td valign="top" width="319">
+<p class="cye-lm-tag">15</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="183">
+<p class="cye-lm-tag">ceil(n)</p>
+</td>
+<td valign="top" width="223">
+<p class="cye-lm-tag">向上取整</p>
+</td>
+<td valign="top" width="223">
+<p class="cye-lm-tag">ceil(44.178)</p>
+</td>
+<td valign="top" width="319">
+<p class="cye-lm-tag">45</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="183">
+<p class="cye-lm-tag">floor(n)</p>
+</td>
+<td valign="top" width="223">
+<p class="cye-lm-tag">向下取整</p>
+</td>
+<td valign="top" width="223">
+<p class="cye-lm-tag">floor(44.99)</p>
+</td>
+<td valign="top" width="319">
+<p class="cye-lm-tag">44</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="183">
+<p class="cye-lm-tag">round(m,n)</p>
+</td>
+<td valign="top" width="223">
+<p class="cye-lm-tag">四舍五入</p>
+</td>
+<td valign="top" width="223">
+<p class="cye-lm-tag">round(100.256,2)</p>
+</td>
+<td valign="top" width="319">
+<p class="cye-lm-tag">100.26</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="183">
+<p class="cye-lm-tag">trunc(m,n)</p>
+</td>
+<td valign="top" width="223">
+<p class="cye-lm-tag">截断</p>
+</td>
+<td valign="top" width="223">
+<p class="cye-lm-tag">trunk(100.256,2)</p>
+</td>
+<td valign="top" width="319">
+<p class="cye-lm-tag">100.25(小数后几位<span style="font-family: Consolas;" class="cye-lm-tag">?</span>)</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="183">
+<p class="cye-lm-tag">sin(n)</p>
+</td>
+<td valign="top" width="223">
+<p class="cye-lm-tag">正弦</p>
+</td>
+<td valign="top" width="223">
+<p class="cye-lm-tag">sin(1.571)</p>
+</td>
+<td valign="top" width="319">
+<p class="cye-lm-tag">.999999979</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="183">
+<p class="cye-lm-tag">cos(n)</p>
+</td>
+<td valign="top" width="223">
+<p class="cye-lm-tag">余弦</p>
+</td>
+<td valign="top" width="223">
+<p class="cye-lm-tag">cos(0)</p>
+</td>
+<td valign="top" width="319">
+<p class="cye-lm-tag">1</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="183">
+<p class="cye-lm-tag">power(m,n)</p>
+</td>
+<td valign="top" width="223">
+<p class="cye-lm-tag">m的n次幂</p>
+</td>
+<td valign="top" width="223">
+<p class="cye-lm-tag">power(4,2)</p>
+</td>
+<td valign="top" width="319">
+<p class="cye-lm-tag">16</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="183">
+<p class="cye-lm-tag">sqrt(n)</p>
+</td>
+<td valign="top" width="223">
+<p class="cye-lm-tag">平方根</p>
+</td>
+<td valign="top" width="223">
+<p class="cye-lm-tag">sqrt(4)</p>
+</td>
+<td valign="top" width="319">
+<p class="cye-lm-tag">2</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="183">
+<p class="cye-lm-tag">sign(n)</p>
+</td>
+<td valign="top" width="223">
+<p class="cye-lm-tag">取符号</p>
+</td>
+<td valign="top" width="223">
+<p class="cye-lm-tag">sign(-32)</p>
+</td>
+<td valign="top" width="319">
+<p class="cye-lm-tag">-1</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="183">
+<p class="cye-lm-tag">mod(m,n)</p>
+</td>
+<td valign="top" width="223">
+<p class="cye-lm-tag">取m%n的结果</p>
+</td>
+<td valign="top" width="223">
+<p class="cye-lm-tag">mod(10,3)</p>
+</td>
+<td valign="top" width="319">
+<p class="cye-lm-tag">1&nbsp;(Oracle中没有%运算符)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="cye-lm-tag">&nbsp;</p>
+<p class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">日期函数</span>，对日期值进行运算，根据函数的用途产生日期数据类型或数值类型的结果。</p>
+<table class="cye-lm-tag">
+<tbody class="cye-lm-tag">
+<tr class="cye-lm-tag">
+<td valign="center" width="183">
+<p class="cye-lm-tag">函数</p>
+</td>
+<td valign="center" width="288" class="cye-lm-tag">
+<p class="cye-lm-tag">功能</p>
+</td>
+<td valign="center" width="342">
+<p class="cye-lm-tag">实例</p>
+</td>
+<td valign="center" width="135">
+<p class="cye-lm-tag">结果</p>
+</td>
+</tr>
+<tr class="cye-lm-tag">
+<td valign="top" width="183">
+<p class="cye-lm-tag">sysdate</p>
+</td>
+<td valign="top" width="288" class="cye-lm-tag">
+<p class="cye-lm-tag">返回当前日期和时间</p>
+</td>
+<td valign="top" width="342" class="cye-lm-tag">
+<p class="cye-lm-tag">select&nbsp;sysdate&nbsp;from&nbsp;dual;</p>
+</td>
+<td valign="top" width="135">
+<p class="cye-lm-tag">当前日期和时间</p>
+</td>
+</tr>
+<tr class="cye-lm-tag">
+<td valign="top" width="183">
+<p class="cye-lm-tag">systimestamp</p>
+</td>
+<td valign="top" width="288" class="cye-lm-tag">
+<p class="cye-lm-tag">返回当前日期、时间、时区</p>
+</td>
+<td valign="top" width="342">
+<p class="cye-lm-tag">select&nbsp;systimestamp&nbsp;from</p>
+<p class="cye-lm-tag">dual;</p>
+</td>
+<td valign="top" width="135">
+<p class="cye-lm-tag">当前日期、时间</p>
+<p class="cye-lm-tag">和时区</p>
+</td>
+</tr>
+<tr class="cye-lm-tag">
+<td valign="top" width="183">
+<p class="cye-lm-tag">months_between(</p>
+<p class="cye-lm-tag">prevdate,nextdate)</p>
+</td>
+<td valign="top" width="288" class="cye-lm-tag">
+<p class="cye-lm-tag">返回两个日期间的月份</p>
+</td>
+<td valign="top" width="342" class="cye-lm-tag">
+<p class="cye-lm-tag">months_between(‘04-11月</p>
+<p class="cye-lm-tag">-05’,’11-1月-01’)</p>
+</td>
+<td valign="top" width="135">
+<p class="cye-lm-tag">57.7741935</p>
+</td>
+</tr>
+<tr class="cye-lm-tag">
+<td valign="top" width="183">
+<p class="cye-lm-tag">add_months</p>
+</td>
+<td valign="top" width="288" class="cye-lm-tag">
+<p class="cye-lm-tag">返回把月份数加到日期上的新日期</p>
+</td>
+<td valign="top" width="342" class="cye-lm-tag">
+<p class="cye-lm-tag">add_months(‘06-2月-03’,1)</p>
+<p class="cye-lm-tag">add_months(‘06-2月-03’,1)</p>
+</td>
+<td valign="top" width="135">
+<p class="cye-lm-tag">06-3月-03</p>
+<p class="cye-lm-tag">06-1月-03</p>
+</td>
+</tr>
+<tr class="cye-lm-tag">
+<td valign="top" width="183">
+<p class="cye-lm-tag">next_day</p>
+</td>
+<td valign="top" width="288" class="cye-lm-tag">
+<p class="cye-lm-tag">返回指定日期后的星期对应的新日期</p>
+</td>
+<td valign="top" width="342" class="cye-lm-tag">
+<p class="cye-lm-tag">next_day(‘06-2月-3’,’星期一’)</p>
+</td>
+<td valign="top" width="135">
+<p class="cye-lm-tag">10-2月03</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="183">
+<p class="cye-lm-tag">last_day</p>
+</td>
+<td valign="top" width="288">
+<p class="cye-lm-tag">返回指定日期所在月的最后一天</p>
+</td>
+<td valign="top" width="342">
+<p class="cye-lm-tag">last_day(‘06-2月-03’)</p>
+</td>
+<td valign="top" width="135">
+<p class="cye-lm-tag">28-2月-03</p>
+</td>
+</tr>
+<tr class="cye-lm-tag">
+<td valign="top" width="183">
+<p class="cye-lm-tag">round</p>
+</td>
+<td valign="top" width="288" class="cye-lm-tag">
+<p class="cye-lm-tag">按指定格式对日期进行四舍五入</p>
+<p class="cye-lm-tag">对年份四舍五入，日期&gt;6月<span style="font-family: Consolas;" class="cye-lm-tag">30</span><span style="font-family: 宋体;" class="cye-lm-tag">日，则</span></p>
+<p class="cye-lm-tag">年份+1;</p>
+</td>
+<td valign="top" width="342" class="cye-lm-tag">
+<p class="cye-lm-tag">round(to_date(‘13-2月-03’),’YEAR’)</p>
+<p class="cye-lm-tag">round(to_date(‘13-2月-03’),’MONTH’)</p>
+<p class="cye-lm-tag">round(to_date(‘13-2月-03’),’DAY’)</p>
+</td>
+<td valign="top" width="135">
+<p class="cye-lm-tag">01-1月-03</p>
+<p class="cye-lm-tag">01-2月-03</p>
+<p class="cye-lm-tag">16-2月-03</p>
+</td>
+</tr>
+<tr class="cye-lm-tag">
+<td valign="top" width="183">
+<p class="cye-lm-tag">trunc</p>
+</td>
+<td valign="top" width="288" class="cye-lm-tag">
+<p class="cye-lm-tag">对日期按指定方式进行截断</p>
+</td>
+<td valign="top" width="342">
+<p class="cye-lm-tag">trunc(to_date(‘06-2月-03’),’YEAR’)</p>
+<p class="cye-lm-tag">trunc(to_date(‘06-2月-03’),’MONTH’)</p>
+<p class="cye-lm-tag">trunc(to_date(‘06-2月-03’),’DAY’)</p>
+</td>
+<td valign="top" width="135">
+<p class="cye-lm-tag">01-1月-03</p>
+<p class="cye-lm-tag">01-2月-03</p>
+<p class="cye-lm-tag">02-2月-03</p>
+</td>
+</tr>
+<tr class="cye-lm-tag">
+<td valign="top" width="183">
+<p class="cye-lm-tag">extract(year&nbsp;</p>
+<p class="cye-lm-tag">from&nbsp;date)</p>
+</td>
+<td valign="top" width="288" class="cye-lm-tag">
+<p class="cye-lm-tag">返回date中的年份，也可以是month</p>
+<p class="cye-lm-tag">day,</p>
+</td>
+<td valign="top" width="342" class="cye-lm-tag">
+<p class="cye-lm-tag">extract(year&nbsp;from&nbsp;sysdate)</p>
+</td>
+<td valign="top" width="135">
+<p class="cye-lm-tag">2014</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="cye-lm-tag">&nbsp;</p>
+<p class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">转换函数</span>，将值从一种数据类型转换为另一种数据类型。Oracle中没有convert函数。</p>
+<table class="cye-lm-tag">
+<tbody class="cye-lm-tag">
+<tr>
+<td valign="center" width="124">
+<p class="cye-lm-tag">函数</p>
+</td>
+<td valign="center" width="192">
+<p class="cye-lm-tag">功能</p>
+</td>
+<td valign="center" width="456">
+<p class="cye-lm-tag">实例</p>
+</td>
+<td valign="center" width="176">
+<p class="cye-lm-tag">结果</p>
+</td>
+</tr>
+<tr class="cye-lm-tag">
+<td valign="top" width="124">
+<p class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">to_char</span></p>
+</td>
+<td valign="top" width="192" class="cye-lm-tag">
+<p class="cye-lm-tag">转换成指定字符串类型</p>
+</td>
+<td valign="top" width="456" class="cye-lm-tag">
+<p class="cye-lm-tag">to_char(123.45,’$9999.9’)&nbsp;(只有$符号可以)</p>
+</td>
+<td valign="top" width="176">
+<p class="cye-lm-tag">$123.5</p>
+</td>
+</tr>
+<tr class="cye-lm-tag">
+<td valign="top" width="124">
+<p class="cye-lm-tag">to_date</p>
+</td>
+<td valign="top" width="192">
+<p class="cye-lm-tag">转换成指定日期类型</p>
+</td>
+<td valign="top" width="456" class="cye-lm-tag">
+<p class="cye-lm-tag">to_date(‘1980-01-01’,’yyyy-mm-dd’)</p>
+</td>
+<td valign="top" width="176">
+<p class="cye-lm-tag">01-1月-80</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="124">
+<p class="cye-lm-tag">to_number</p>
+</td>
+<td valign="top" width="192">
+<p class="cye-lm-tag">转换成指定数值类型</p>
+</td>
+<td valign="top" width="456">
+<p class="cye-lm-tag">to_number(‘1234.5’)</p>
+</td>
+<td valign="top" width="176">
+<p class="cye-lm-tag">数字：1234.5</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-left: 30px;" class="cye-lm-tag">to_char()的语法为:</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">to_char(d|n[,fmt]);--其中<span style="font-family: Consolas;" class="cye-lm-tag">d</span><span style="font-family: 宋体;" class="cye-lm-tag">是日期，</span><span style="font-family: Consolas;" class="cye-lm-tag">n</span><span style="font-family: 宋体;" class="cye-lm-tag">是数字，</span>fmt是指定日期或数字的格式&nbsp;。转换成的是varchar2数据类型</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">例: select&nbsp;to_char(sysdate,’YYYY”年”fmMM”月”fmDD”日”&nbsp;HH24:MI:SS’)&nbsp;from&nbsp;dual;</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">--使用了填充模式”fm”格式掩码来避免空格填充和数字零填充</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">--格式中的小数有多少位，结果就会四舍五入进多少位。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">to_date()的语法为：</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">to_date(char[,fmt]);--将char或varchar数据类型转换为日期数据类型。fmt指定字符的形式。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">--<span style="font-family: 宋体;" class="cye-lm-tag">这里的</span>fmt是指定Oracle服务器该如果解析这个char字符串的格式，返回的结果统一是：yyyy-mm-dd;</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">select&nbsp;to_date(‘2013-07-18’,’yyyy-mm-dd’)&nbsp;from&nbsp;dual;--结果：18-7月-13</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">--这Oracle中mm是月份，mi是分种数</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">to_number()函数将包含数字的字符串转换为number数据类型。通常不必这样做，因为Oracle可以对数字字符串进行隐</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">式转换。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">select&nbsp;sqrt(to_number(‘100’))&nbsp;from&nbsp;dual;--结果：10</p>
+<p class="cye-lm-tag">&nbsp;</p>
+<p class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">其他函数</span>，除去已介绍函数还不其他一些单行函数，在此称为其他函数。</p>
+<table class="cye-lm-tag">
+<tbody class="cye-lm-tag">
+<tr>
+<td valign="center" width="209">
+<p class="cye-lm-tag">函数</p>
+</td>
+<td valign="center" width="646">
+<p class="cye-lm-tag">功能</p>
+</td>
+</tr>
+<tr class="cye-lm-tag">
+<td valign="top" width="209">
+<p class="cye-lm-tag">nvl(exp1,exp2)</p>
+</td>
+<td valign="top" width="646" class="cye-lm-tag">
+<p class="cye-lm-tag">如果exp1的值为null,则返回exp2的值，否则返回exp1的值</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="209">
+<p class="cye-lm-tag">nvl2(exp1,exp2,exp3)</p>
+</td>
+<td valign="top" width="646">
+<p class="cye-lm-tag">如果exp1的值为null,则返回exp2的值，否则返回exp3的值</p>
+</td>
+</tr>
+<tr class="cye-lm-tag">
+<td valign="top" width="209" class="cye-lm-tag">
+<p class="cye-lm-tag">decode(value,if1,then1</p>
+<p class="cye-lm-tag">,if2,then2,...,else</p>
+</td>
+<td valign="top" width="646" class="cye-lm-tag">
+<p class="cye-lm-tag">如果value的值为if1，则返回then1的值<span style="font-family: Consolas;" class="cye-lm-tag">;</span><span style="font-family: 宋体;" class="cye-lm-tag">如果</span>value的值为if2，则返回then2的值</p>
+<p class="cye-lm-tag">，....&nbsp;否则返回else的值</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="cye-lm-tag">例: select&nbsp;ename,</p>
+<p class="cye-lm-tag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sal+nvl(comm,0)&nbsp;sal1,</p>
+<p class="cye-lm-tag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nvl2(comm,sal+comm,sal)&nbsp;sal2,</p>
+<p class="cye-lm-tag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;decode(to_char(hiredate,'MM'),'01','一月','02','二月','03','三月','04','四月','05'</p>
+<p class="cye-lm-tag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,'五月','06','六月','下半年')&nbsp;mon</p>
+<p class="cye-lm-tag">　　&nbsp;from&nbsp;employee;</p>
+<p class="cye-lm-tag">&nbsp;</p>
+<p class="cye-lm-tag">&nbsp;</p>
+<p class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">聚合函数：</span>能基于列进行计算，将多个直合并为一个值。对一组值进行计算，并返回计算后的值。</p>
+<p class="cye-lm-tag">使用聚合函数进行统计值时，将忽略NULL值，但不忽略重复项。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">1.sun()，返回表达式中所有数值的总和，只能用于数字列，只能返回一个数值，不能够直接与可能返回多行的列一起 使用来进行查询。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">例：select&nbsp;sun(score)&nbsp;from&nbsp;result&nbsp;where&nbsp;studentid=33&nbsp;--查询学号为<span style="font-family: Consolas;" class="cye-lm-tag">33</span><span style="font-family: 宋体;" class="cye-lm-tag">的学生的成绩总和</span></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">2.avg(),返回表达式中所有数值的平均值，只能用于数值列。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">例：select&nbsp;avg(score) from&nbsp;result&nbsp;where&nbsp;score&gt;=60&nbsp;--查询及格的平均值。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">3.max()和min():max()返回表达式中的最大值，min()返回表达式中的最小值，它们都可以用于数字型，字符型以及 日期<span style="font-family: Consolas;" class="cye-lm-tag">/</span><span style="font-family: 宋体;" class="cye-lm-tag">时间类型的列。</span></p>
+<p style="margin-left: 30px;" class="cye-lm-tag">例：select&nbsp;avg(score),max(score),min(score)&nbsp;from&nbsp;result&nbsp;where&nbsp;score&gt;=60</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">--查询及格线上的平均分、最高分、最低分</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">4.count(),返回提供的组成或记录龄中的计数。可以用于数字和字符类型的列，也可以使用星号’*’作为count()的 表达式。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">例：select&nbsp;count(*)&nbsp;from&nbsp;score&nbsp;where&nbsp;score&gt;=60 --查询及格人数的语句&nbsp;</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">也可以使用整数类型的值当作表达式，如：</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">select&nbsp;count(1000)&nbsp;from&nbsp;score&nbsp;where&nbsp;score&gt;=60&nbsp;&nbsp;--结果将和上面的一样</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">小提示：count(distinct&nbsp;表达式),遇到重复数据，只记录一次</p>
+<p class="cye-lm-tag">&nbsp;</p>
+<p class="cye-lm-tag"><span style="color: #ff0000;" class="cye-lm-tag">分析函数：</span>Oracle从8.1.6<span style="font-family: 宋体;" class="cye-lm-tag">版本开始提供分析函数。分析函数是对一组查询结果进行运算，然后获行结果。与聚合函数的区</span>别在于返回多行，聚合函数每组返回一行。用于对分组后组内进行排序。</p>
+<p class="cye-lm-tag">语法：&nbsp;</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">函数名([参数])&nbsp;over&nbsp;([分区子句][排序子句]);--<span style="font-family: 宋体;" class="cye-lm-tag">分区子句</span>(partition&nbsp;by)表示将查询结果分为不同的组，功能</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">类似于group&nbsp;by语句。默认将所有结果作为一个分组。排序子句(order&nbsp;by)默认是asc升序。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">rank、dense_rank、row_number函数用于为每条记录产生一个从<span style="font-family: Consolas;" class="cye-lm-tag">1</span><span style="font-family: 宋体;" class="cye-lm-tag">开始至</span>N的自然数，N的值可能小于记录的总数。这</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">3<span style="font-family: 宋体;" class="cye-lm-tag">个函数用于解决</span>排名问题。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">1)row_number函数返回一个唯一的值，当遇到相同数据时，排名按照记录集中记录的顺序依次递增。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">2)dense_rank函数返回一个唯一的值，当遇到相同数据时，所有相同数据的排名都是一样的。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">3)rank函数返回一个唯一的值，当遇到相同的数据时，所有相同数据的排名是一样的，同时会在最后一条相同记录和</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">下一条不同记录的排名之间空出排名。</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">例：select&nbsp;ename,deptno,sal,</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rank()&nbsp;over&nbsp;(partition&nbsp;by&nbsp;deptno&nbsp;order&nbsp;by&nbsp;sal&nbsp;desc)&nbsp;rank,</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dense_rank()&nbsp;over&nbsp;(partition&nbsp;by&nbsp;deptno&nbsp;order&nbsp;by&nbsp;sal&nbsp;desc)&nbsp;"dense_rank",</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;row_number()&nbsp;over&nbsp;(partition&nbsp;by&nbsp;deptno&nbsp;order&nbsp;by&nbsp;sal&nbsp;desc)&nbsp;"row_number"</p>
+<p style="margin-left: 30px;" class="cye-lm-tag">from&nbsp;employee;</p>
+<p class="cye-lm-tag">&nbsp;</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="https://www.cnblogs.com/qneverever/category/689732.html" target="_blank">数据库(DataBase)</a></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(4500023,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;705b5470-ccdd-e411-b908-9dcfd8948a71&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./Oracle数据库（1）_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./Oracle数据库（1）_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/qneverever/" target="_blank"><img src="./Oracle数据库（1）_files/20150413113605.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/qneverever/">、李白</a><br>
+            <a href="http://home.cnblogs.com/u/qneverever/followees">关注 - 8</a><br>
+            <a href="http://home.cnblogs.com/u/qneverever/followers">粉丝 - 17</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;705b5470-ccdd-e411-b908-9dcfd8948a71&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(4500023,&#39;Digg&#39;)">
+        <span class="diggnum cye-lm-tag" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(4500023,&#39;Bury&#39;)">
+        <span class="burynum cye-lm-tag" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="https://www.cnblogs.com/qneverever/p/4499966.html" class="p_n_p_prefix">« </a> 上一篇：<a href="https://www.cnblogs.com/qneverever/p/4499966.html" title="发布于2015-05-13 11:40">MySQL数据库简单使用</a><br><a href="https://www.cnblogs.com/qneverever/p/4501876.html" class="p_n_p_prefix">» </a> 下一篇：<a href="https://www.cnblogs.com/qneverever/p/4501876.html" title="发布于2015-05-13 22:18">Oracle数据库（二）</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date" class="cye-lm-tag">2015-05-13 11:59</span> <a href="https://www.cnblogs.com/qneverever/">、李白</a> 阅读(<span id="post_view_count" class="cye-lm-tag">25021</span>) 评论(<span id="post_comment_count" class="cye-lm-tag">0</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=4500023" rel="nofollow">编辑</a> <a href="https://www.cnblogs.com/qneverever/p/4500023.html#" onclick="AddToWz(4500023);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=222880,cb_entryId=4500023,cb_blogApp=currentBlogApp,cb_blogUserGuid='705b5470-ccdd-e411-b908-9dcfd8948a71',cb_entryCreatedDate='2015/5/13 11:59:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips" class="cye-lm-tag"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/qneverever/p/4500023.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/qneverever/p/4500023.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】超50万VC++源码: 大型组态工控、电力仿真CAD与GIS源码库！</a><br><a href="http://clickc.admaster.com.cn/c/a116493,b2949399,c1705,i0,m101,8a1,8b3,h" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-华为云&#39;)">【活动】华为云普惠季 1折秒杀 狂欢继续</a><br><a href="https://www.grapecity.com.cn/developer/spreadjs?utm_source=cnblogs&amp;utm_medium=blogpage&amp;utm_term=bottom&amp;utm_content=SpreadJS&amp;utm_campaign=community" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-SpreadJS&#39;)">【工具】SpreadJS纯前端表格控件，可嵌入应用开发的在线Excel</a><br><a href="https://cloud.tencent.com/act/group/amd/index?fromSource=gwzcw.1608278.1608278.1608278" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-腾讯云&#39;)">【腾讯云】拼团福利，AMD云服务器8元/月</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="https://cloud.tencent.com/act/double11?fromSource=gwzcw.1608279.1608279.1608279" target="_blank"><img width="300" height="250" src="./Oracle数据库（1）_files/24442-20181116205423366-85420768.jpg" alt="qcloud" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;C1&#39;);"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>相关博文：</b><br>·  <a href="https://www.cnblogs.com/AIThink/p/5288254.html" target="_blank" onclick="clickRecomItmem(5288254,&#39;4KISTF2UBB7pGWSeIOdDYSeJwVzS0VJrt6MQkOG1lAvU3wzj9hCBZoihbH8JyXTus3zIDtNktZvtfGtg9EMMZAj0bK9JrGm6V4IfCM/OmBOWFQ1JPIM3RjY3TyzBbeAXiAlPc1eVopxYrp2NqqY+aU5daFFmb1b500FyOikYpqdTJG0g/Owde86V7m33onI00hs=&#39;)">Oracle 学习笔记（一）Oracle的基本介绍与语法</a><br>·  <a href="https://www.cnblogs.com/navyzhou/archive/2013/05/07/3065762.html" target="_blank" onclick="clickRecomItmem(3065762,&#39;GZq/ln9CaE9BoScU3D9XOe8HXGl1CeVPc2X0Bi79sPtH/fP6g0qokSzpo89PLkqcAs0NDkW/rCXz3ltW372sGXcOpa4sFCKCpkPrsllcxZmg81MDDSxk534e5l6RqZpD352ElOBi5UgXGB/GC7xFUVekHn1O+SUaoFr7WnFydYupgas3Y+kIq3tq/SczG6Ve9g==&#39;)">Oracle入门基础</a><br>·  <a href="https://www.cnblogs.com/XiaoRuLiang/p/9015159.html" target="_blank" onclick="clickRecomItmem(9015159,&#39;pf1DeEbDFQWZuPp8MKbvY/Ewr7MauAOXqyNVHzZacLu9hyYDXLMeVgjtE80QRimi1xYLBEZwhv5uPk71oJuF+TwUPL8TBR7boh1sqiI9Gun4UTsvoISSfyyLo9kKp3bBZyOhSyr+sewg1XjZKianAK/4Lvlwr7Rhl4cWdCdeS61h6V86wQgH2kPAJ+XNXcD2cOw=&#39;)">Oracle入门《Oracle介绍》第一章1-1</a><br>·  <a href="https://www.cnblogs.com/yzy-lengzhu/archive/2013/02/18/2915475.html" target="_blank" onclick="clickRecomItmem(2915475,&#39;u8UkAhtwjlT9L5MqrxeLxyTTEPnnDUkKwr4cjrdj6z8NqYdbXo5OofoIM3XJOeujCVxYQkDnFszyxGXnCR975Jml8fbMmAi2ybCGTKzCT57tVTtG223N6Mp7WbFernw5UpLAa2/zcFh1kSPmoc0az84V2TfcQRPjJm1KRPDsH192QwTtVWReDySlFyOaq1raG+/0&#39;)">oracle 修改system用户 密码</a><br>·  <a href="https://www.cnblogs.com/LJN520/p/5811170.html" target="_blank" onclick="clickRecomItmem(5811170,&#39;PxFV8bz7hfs04gBEeMvlIcIe6ZLJv13nBwks+thJRvjGKL7fXBYTB9P5vYoLQ25Eeuw+VMIwCu67o8Dux96zh2p/un3Yu2pCi0FeEjEEc2Iyw1RNVdFDZKcIIpHUeM74VJVAkFgr37M26vfVsMQnfPVOsSS+nTpPgnpgQi6zIXZnWKdvdijf6UTZOB52&#39;)">Oracle数据库基础</a><br></div></div>
+<script async="async" src="./Oracle数据库（1）_files/gpt.js"></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+
+<script>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/1090369/C2', [468, 60], 'div-gpt-ad-1539008685004-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
+</script>
+<div id="cnblogs_c2" class="c_ad_block">
+    <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;" data-google-query-id="CNvExcuq4t4CFcwxKgodWjEFug">
+    <script>
+    if (new Date() >= new Date(2018, 9, 13)) {
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1539008685004-0'); });
+    }
+    </script>
+    <div id="google_ads_iframe_/1090369/C2_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C2_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C2_0" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" data-google-container-id="1" data-load-complete="true" src="./Oracle数据库（1）_files/saved_resource.html"></iframe></div></div>
+</div>
+<div id="under_post_kb"><div class="itnews c_ad_block"><b>最新新闻</b>：<br> ·  <a href="https://news.cnblogs.com/n/612719/" target="_blank">又一家无人货架宣布倒闭！哪些教训值得反思？</a><br> ·  <a href="https://news.cnblogs.com/n/612718/" target="_blank">亚马逊HQ2新总部落户谁家？竞标榜单20强各出奇招</a><br> ·  <a href="https://news.cnblogs.com/n/612717/" target="_blank">滴滴出行在多伦多开设实验室 研究AI和智能驾驶</a><br> ·  <a href="https://news.cnblogs.com/n/612716/" target="_blank">Facebook连跌三月创历史记录 分析师称下跌还没停止</a><br> ·  <a href="https://news.cnblogs.com/n/612715/" target="_blank">因欧盟“链接税”：谷歌或在当地关闭新闻服务</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/qneverever/">、李白</a><br>园龄：<a href="https://home.cnblogs.com/u/qneverever/" title="入园时间：2015-04-08">3年7个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/qneverever/followers/">17</a><br>关注：<a href="https://home.cnblogs.com/u/qneverever/followees/">8</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;705b5470-ccdd-e411-b908-9dcfd8948a71&#39;)">+加关注</a></div><script>getFollowStatus('705b5470-ccdd-e411-b908-9dcfd8948a71')</script></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2018/10/01&#39;);return false;">&lt;</a></td><td align="center">2018年11月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2018/12/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">28</td><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td><td class="CalOtherMonthDay" align="center">31</td><td align="center">1</td><td align="center">2</td><td class="CalWeekendDay" align="center">3</td></tr><tr><td class="CalWeekendDay" align="center">4</td><td align="center">5</td><td align="center">6</td><td align="center">7</td><td align="center">8</td><td align="center">9</td><td class="CalWeekendDay" align="center">10</td></tr><tr><td class="CalWeekendDay" align="center">11</td><td align="center">12</td><td align="center">13</td><td align="center">14</td><td align="center">15</td><td align="center">16</td><td class="CalWeekendDay" align="center">17</td></tr><tr><td class="CalWeekendDay" align="center">18</td><td align="center">19</td><td class="CalTodayDay" align="center">20</td><td align="center">21</td><td align="center">22</td><td align="center">23</td><td class="CalWeekendDay" align="center">24</td></tr><tr><td class="CalWeekendDay" align="center">25</td><td align="center">26</td><td align="center">27</td><td align="center">28</td><td align="center">29</td><td align="center">30</td><td class="CalOtherMonthDay" align="center">1</td></tr><tr><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td><td class="CalOtherMonthDay" align="center">7</td><td class="CalOtherMonthDay" align="center">8</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/qneverever/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="https://www.cnblogs.com/qneverever/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="https://www.cnblogs.com/qneverever/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="https://www.cnblogs.com/qneverever/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="https://www.cnblogs.com/qneverever/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_toptags" class="sidebar-block"></div><div id="sidebar_categories">
+<div id="sidebar_postcategory" class="catListPostCategory sidebar-block">
+<h3 class="catListTitle">随笔分类</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="https://www.cnblogs.com/qneverever/category/697319.html">Html(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="https://www.cnblogs.com/qneverever/category/678483.html">Java EE</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="https://www.cnblogs.com/qneverever/category/678482.html">Java基础(8)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="https://www.cnblogs.com/qneverever/category/681418.html">工具(或插件)使用(3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_4" href="https://www.cnblogs.com/qneverever/category/689732.html">数据库(DataBase)(6)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_5" href="https://www.cnblogs.com/qneverever/category/678485.html">杂谈</a> </li>
+
+</ul>
+
+</div>
+
+<div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+<h3 class="catListTitle">随笔档案</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_1_Link_0" href="https://www.cnblogs.com/qneverever/archive/2015/06.html">2015年6月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_1" href="https://www.cnblogs.com/qneverever/archive/2015/05.html">2015年5月 (6)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_2" href="https://www.cnblogs.com/qneverever/archive/2015/04.html">2015年4月 (8)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap" style="display: none;">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"></div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="https://www.cnblogs.com/qneverever/p/4500023.html">1. Oracle数据库（一）(25021)</a></li><li><a href="https://www.cnblogs.com/qneverever/p/4425441.html">2. 浅谈String/StringBuffer/StringBuilder字符串的拼接(10430)</a></li><li><a href="https://www.cnblogs.com/qneverever/p/4423975.html">3. Java从控制台获取数据的方法(3036)</a></li><li><a href="https://www.cnblogs.com/qneverever/p/4501879.html">4. Oracle之PL/SQL编程(2723)</a></li><li><a href="https://www.cnblogs.com/qneverever/p/4501876.html">5. Oracle数据库（二）(1954)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap" style="display: none;">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap" style="display: none;">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2018 、李白
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+<iframe id="google_osd_static_frame_4787044286160" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./Oracle数据库（1）_files/saved_resource(1).html"></iframe></body><div id="cye-workaround-body" style="position: absolute; left: 0px; top: 0px; z-index: -2147483646; background: none 0px 0px / auto repeat-x scroll padding-box border-box rgb(240, 238, 245); height: 15502px; width: 1200px;"></div><div id="cye-workaround-body-image" style="position: absolute; left: 0px; top: 0px; z-index: -2147483645; background: url(&quot;https://www.cnblogs.com/skins/CodingLife/images/body_bg.png&quot;) 0px 0px / auto repeat-x scroll padding-box border-box rgba(0, 0, 0, 0); height: 15502px; width: 1200px;"></div></html>
