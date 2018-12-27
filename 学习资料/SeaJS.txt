@@ -1,0 +1,29 @@
+# 遵循CMD规范：
+	|- 一个文件就是一个模块；
+	|- define(factory):
+		|- factory是字符串或对象：该字符串或对象代表该模块的接是口；
+		|- factory是函数：表示是模块的构造方法。执行该构造方法，可以得到模块向外提供的接口。factory默认会传入三个参数：require、exports 和 module
+# Modules/Transport 规范：
+	|- define(id, deps, factory)
+		|- id:模块标识；
+		|- deps：一个数组，表示模块依赖；
+		|- factory：同上；
+# 模块的启动和运行：
+	|- seajs.use(id, callback?)
+		|- id:模块标识；
+		|- callback:回调（接收使用的模块作为参数）
+# SeaJS调试接口：
+	|- seajs.cache：Object，查阅当前模块系统中的所有模块信息。
+	|- seajs.resolve：Function，利用模块系统的内部机制对传入的字符串参数进行路径解析。
+	|- seajs.require：Function，全局的 require 方法，可用来直接获取模块接口。
+	|- seajs.data：Object，查看 seajs 所有配置以及一些内部变量的值。
+	|- seajs.log：Function，由 seajs-log 插件提供。
+	|- seajs.find：Function，由 seajs-debug 插件提供。
+# 模块加载大致流程：
+	|- 通过 use 方法来加载入口模块，并接收一个回调函数， 当模块加载完成，会调用回调函数，并传入对应的模块作为参数。
+	|- 从缓存或创建并加载来获取到模块后，等待模块（包括模块依赖的模块）加载完成会调用回调函数。
+	|- 依赖顺序执行（应该是，更深理解待续） 
+# SeaJS特点：
+	|- 模块化加载：
+		|- 面向对象：对于js模块化开发，“封装”的思想最为重要。“封装”是指把不应该暴露给其他代码的逻辑，方法或属性隐藏在对象（模块）内部。对外只提供必要的接口。进而保证了代码的高内聚与低耦合。
+	|- 懒加载：按需加载
