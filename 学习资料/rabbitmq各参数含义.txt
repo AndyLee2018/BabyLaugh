@@ -1,0 +1,38 @@
+# RabbitMQ各个组件
+	|- 生产者：发送消息
+	|- 交换机：将收到的消息根据路由规则路由到特定队列
+	|- 队列：用于存储消息
+	|- 消费者：收到消息并确认
+
+## channel.queueDeclare(String queue, boolean durable, boolean exclusive, boolean autoDelete, Map<String, Object> arguments);
+	|- String queue:队列名称；
+	|- boolean durable：是否持久化，当队列服务器重启时将队列中的消息持久化，重启后恢复到内存中；
+	|- boolean exclusive:排他设置，true时只允许一个消费者监听该队列；
+	|- boolean autoDelete:是否自动删除，当最后一个消费者断开连接之后队列是否自动被删除;
+	|- Map<String, Object> arguments:其它参数；
+## channel.exchangeDeclare(exchange, type, durable);
+	|- String exchange:交换机的名称；
+	|- BuiltinExchangeType.type:交换机的类型；
+	|- boolean durable:是否持久化，意味着MQ服务器重启后交换机是否还存在；
+	### 交换机类型（此处内容不够清晰，未完待续）：
+		|- Direct exchange（直连交换机）：
+			将一个队列绑定到某个交换机上，同时赋予该绑定一个路由键（routing key）；
+			当一个携带着路由值为R的消息被发送给直连交换机时，交换机会把它路由给绑定值同样为R的队列；
+		|- Fanout exchange（扇型交换机）：
+			扇型交换机（funout exchange）将消息路由给绑定到它身上的所有队列。不同于直连交换机，路由键在此类型上不启任务作用。如果N个队列绑定到某个扇型交换机上，当有消息发送给此扇型交换机时，交换机会将消息的发送给这所有的N个队列；
+		|- Topic exchange（主题交换机）：
+			主题交换机（topic exchanges）中，队列通过路由键绑定到交换机上，然后，交换机根据消息里的路由值，将消息路由给一个或多个绑定队列；
+		|- Headers exchange（头交换机）：
+			类似主题交换机，但是头交换机使用多个消息属性来代替路由键建立路由规则。通过判断消息头的值能否与指定的绑定相匹配来确立路由规则。 
+			此交换机有个重要参数：”x-match”
+			当”x-match”为“any”时，消息头的任意一个值被匹配就可以满足条件
+			当”x-match”设置为“all”的时候，就需要消息头的所有值都匹配成功
+## channel.basicPublish(exchange, routingKey, props, body);
+	|- String exchange:将交换机发布到指定交换机；
+	|- String routingKey:路由键；
+	|- BasicProperties props:消息路由标题（不理解，随后补充）；
+	|- byte[] body:消息内容；
+## channel.queueBind(queue, exchange, routingKey)；
+	|- String queue:监听队列名称；
+	|- String exchange:队列绑定的交换机；（简单监听可不配）
+	|- String routingKey:路由键（可不配）；

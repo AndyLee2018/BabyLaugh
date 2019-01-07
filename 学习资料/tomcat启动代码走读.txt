@@ -1,0 +1,19 @@
+# Tomcat启动的入口类：org.apache.catalina.startup.Bootstrap#main
+	|- main方法是整个tomcat启动时的入口。在main方法中，使用bootstrap.init()来初始化类加载器和创建Catalina实例，然后再启动Catalina线程。
+	|- bootstrap.init()方法，用于初始化容器相关，首先创建类加载器，然后通过反射创建org.apache.catalina.startup.Catalina实例：
+	|- 之后Bootstrap的demon.start()方法就会调用Catalina的start方法。Catalina实例执行start方法。这里有两个点，一个是load()加载server.xml配置、初始化Server的过程，一个是getServer().start()开启服务、初始化并开启一系列组件、子容器的过程。
+	|- load方法解析server.xml配置文件，并加载Server、Service、Connector、Container、Engine、Host、Context、Wrapper一系列的容器。加载完成后，调用getServer().start()来开启一个新的Server。
+# load()
+	|- 首先利用Digester类解析server.xml文件，得到容器的配置，并创建相应的对象，并关联父子容器。依次创建的是StandardServer、StandardService、StandardEngine、StandardHost。
+	|- 然后拿到StandardServer实例调用init()方法初始化Tomcat容器的一系列组件。一些容器初始化的的时候，都会调用其子容器的init()方法，初始化它的子容器。顺序是StandardServer、StandardService、StandardEngine、Connector。每个容器都在初始化自身相关设置的同时，将子容器初始化。
+	|- 这里插入一个Tomcat中生命周期的概念。在初始化、开启一系列组件、容器的过程中，由tomcat'管理的组件和容器，都有一个共同的特点，都实现了org.apache.catalina.Lifecycle接口，由Tomcat管理其生命周期。Lifecycle提供一种统一的管理对象生命周期的接口。通过Lifecycle、LifecycleListener、LifecycleEvent，Catalina实现了对tomcat各种组件、容器统一的启动和停止的方式。
+	|- 在Tomcat服务开启过程中启动的一些列组件、容器，都继承了org.apache.catalina.util.LifecycleBase这个抽象类，其中的init()、start() 方法、stop() 方法，为其子类实现了统一的start和stop管理。方法中具体的initInternal()、startInternal() 和stopInternal() 方法，交由子类自己实现。
+# LifecycleBase的init()和start()的实现:
+	|- 可以看到，init()和start()方法里，调用了initInternal()方法、startInternal()方法和stop()方法，这三者最终会走子类的具体实现。
+	|- 上面的StandardServer的初始化过程就是一个活生生的例子。在Catalina的load过程中，getServer().init()方法就是LifecycleBase中的init()方法，调用initInternal()时是走的StandardServer的实现，StandardServer的initInternal()中会调用StandardServer的init()方法，进行子容器的初始化。然后依次初始化。
+# 了解一下StandardServer中的initInternal()实现
+	|- 回到刚才的启动过程中，getServer().start()开启服务的方法，实际就是上面提到的LifecycleBase中的start()方法。其中，会调用org.apache.catalina.core.StandardServer#initInternal方法，初始化Server并调用Service的init方法。org.apache.catalina.core.StandardServer在其实现的startInternal() 中，开启naming resources和services，调用service的start方法，开启所有service，调用其service的startInternal()方法。
+# 看一下StandardServer中的startInternal()的实现：
+	|- 
+# 总结一下启动的Tomcat启动的过程
+	|- 在Catalina的load方法里，就已经调用了StandardServer里的init方法，一层一层初始化了globalNamingResources，StandardService--》StandardEngine，executors，MapperListener，Connector--》CoyoteAdapter，protocolHandler。至此就将tomcat的catalina中的组件、容器初始化完成。 接下来就是调用start方法一层一层开启，StandardServer的startInternal方法，按层次start：globalNamingResources，StandardService--》StandardEngine，executors，MapperListener，Connector--》StandardHost，StandardContext，protocolHandler。顺序基本同init过程。StandardEngine在start时，会init子容器，并调用子容器的start方法。子容器依次这样init、start，就开启了StandardHost和StandardContext。
