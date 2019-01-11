@@ -1,0 +1,35 @@
+# Sonar搭建
+	|- SonarQube下载地址：https://www.sonarqube.org/downloads/
+	|- SonarQube Scanner下载地址：https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner
+## SonarQube
+	|- 数据库配置（mysql5.7以上版本）
+		CREATE DATABASE sonar CHARACTER SET utf8 COLLATE utf8_general_ci; 
+		CREATE USER 'sonar' IDENTIFIED BY 'sonar';
+		GRANT ALL ON sonar.* TO 'sonar'@'%' IDENTIFIED BY 'sonar';
+		GRANT ALL ON sonar.* TO 'sonar'@'localhost' IDENTIFIED BY 'sonar';
+		FLUSH PRIVILEGES   
+	|- sonar.properties的配置
+		sonar.jdbc.url=jdbc:mysql://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance&useSSL=false
+		sonar.jdbc.username=root
+		sonar.jdbc.password=123456
+		sonar.sourceEncoding=UTF-8
+## SonarScanner
+	|- 配置环境变量
+	|- sonar-scanner.properties
+		sonar.host.url=http://localhost:9000
+		sonar.sourceEncoding=UTF-8
+		sonar.jdbc.url=jdbc:mysql://localhost:3306/sonar?useUnicode=true&amp;characterEncoding=utf8
+		sonar.jdbc.username=root
+		sonar.jdbc.password=123456
+		sonar.login=admin
+		sonar.password=admin
+## 要检测的项目（存在于workspace）
+	|- 添加sonar-project.properties文件
+		sonar.projectKey=fabanceshi5_ipartner（自定义）
+		sonar.projectName=fabanceshi5_ipartner（自定义，会在浏览页面中显示）
+		sonar.version=1.0
+		sonar.language=java
+		sonar.sourceEncoding=UTF-8
+		sonar.sources=src
+		sonar.projectBaseDir=.
+		sonar.java.binaries=target\\classes（编译后class文件位置）
