@@ -33,3 +33,4 @@
 		sonar.sources=src
 		sonar.projectBaseDir=.
 		sonar.java.binaries=target\\classes（编译后class文件位置）
+## 执行检测：在项目根目录下执行cmd，执行命令sonar-scanner -X
