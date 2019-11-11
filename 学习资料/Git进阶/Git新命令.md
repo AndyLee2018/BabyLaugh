@@ -22,3 +22,9 @@
 ## git diff --cached 查看暂存区和版本库中最后版本文件的区别
 ## git diff --cached [版本hash值] 查看暂存区和版本库中某个版本文件的区别
 ## git diff [版本hash值] [版本hash值] 查看版本库中某两个版本文件的区别（有先后）
+# 回退
+## git reset [版本hash值] 将版本回退到指定版本，包括版本库和暂存区
+## git reset [版本hash值] --soft 将版本回退到指定版本，只包括版本库
+
+
+
