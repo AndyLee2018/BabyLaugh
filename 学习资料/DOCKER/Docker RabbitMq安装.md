@@ -1,0 +1,2 @@
+- 下载 docker pull rabbitmq:3-management
+- 启动 docker run -d -p 5672:5672 -p 15672:15672 --name myrabbitmq 68055d63a993（镜像ID）
