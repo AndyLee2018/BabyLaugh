@@ -1,0 +1,4 @@
+- 下载 docker pull redis
+- 启动 docker run -d -p 6379:6379 --name myredis docker.io/redis
+- 可参考redis中文网站学习命令，
+- Redis Desktop Manager界面工具连接redis(界面左下角connect,右键数据库console)
